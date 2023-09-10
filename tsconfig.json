@@ -18,7 +18,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/create-report/language-files.ts"  ],
   "exclude": [
     "**/*.spec.ts"
   ]

@@ -6,7 +6,6 @@ export type ReportOptions = {
   add?: boolean;
   remove?: boolean;
   ci?: boolean;
-  separator?: string;
   noEmptyTranslation?: string;
   missingTranslationString?: string;
   detect?: DetectionType[];

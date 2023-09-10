@@ -6,7 +6,6 @@ declare const _default: {
     add: boolean;
     remove: boolean;
     ci: boolean;
-    separator: string;
     noEmptyTranslation: string;
     missingTranslationString: string;
 };

@@ -3,14 +3,11 @@
 </h1>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/vue-i18n-extract"><img src="https://img.shields.io/npm/v/vue-i18n-extract.svg?style=flat-square" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/vue-i18n-extract"><img src="https://img.shields.io/npm/dm/vue-i18n-extract.svg?style=flat-square" alt="Downloads"></a>
-  <a href="https://snyk.io/test/github/Spittal/vue-i18n-extract?targetFile=package.json"><img src="https://snyk.io/test/github/Spittal/vue-i18n-extract/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a>
-  <a href="https://codeclimate.com/github/Spittal/vue-i18n-extract/maintainability"><img src="https://api.codeclimate.com/v1/badges/d21f341c33b2bfb6fe0e/maintainability" alt="Maintainability"></a>
-  <img src="https://github.com/Spittal/vue-i18n-extract/workflows/Test/badge.svg?branch=master" alt="Tests">
+  <a href="https://www.npmjs.com/package/vue-i18n-extract-bl"><img src="https://img.shields.io/npm/v/vue-i18n-extract-bl.svg?style=flat-square" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/vue-i18n-extract-bl"><img src="https://img.shields.io/npm/dm/vue-i18n-extract-bl.svg?style=flat-square" alt="Downloads"></a>
 </p>
 
-`vue-i18n-extract` is built to work with your Vue.js projects using the library [vue-i18n](https://kazupon.github.io/vue-i18n/). It runs static analysis on your Vue.js source code looking for any `vue-i18n` usage, in order to:
+`vue-i18n-extract-bl` is built to work with your Vue.js projects using the library [vue-i18n](https://kazupon.github.io/vue-i18n/). It runs static analysis on your Vue.js source code looking for any `vue-i18n` usage, in order to:
 
 - Report all **missing keys** in your language files.
 - Report all **unused keys** in your language files.
@@ -23,20 +20,21 @@
 ## Content
 
 - [Usage](#usage)
-  - [From the command line](#from-the-command-line)
-  - [As part of a project](#as-part-of-a-project)
-  - [As part of a Node.js script](#as-part-of-a-node.js-script)
+   - [From the command line](#from-the-command-line)
+   - [As part of a project](#as-part-of-a-project)
+   - [As part of a Node.js script](#as-part-of-a-node.js-script)
+
 - [Configuration](#configuration)
-  - [`vueFiles`](#vuefiles)
-  - [`languageFiles`](#languagefiles)
-  - [`output`](#output)
-  - [`add`](#add)
-  - [`remove`](#remove)
-  - [`ci`](#ci)
-  - [`separator`](#separator)
-  - [`exclude`](#exclude)
-  - [`noEmptyTranslation`](#noemptytranslation)
-  - [`missingtranslationstring`](#missingtranslationstring)
+   - [`vueFiles`](#vuefiles)
+   - [`languageFiles`](#languagefiles)
+   - [`output`](#output)
+   - [`add`](#add)
+   - [`remove`](#remove)
+   - [`ci`](#ci)
+   - [`exclude`](#exclude)
+   - [`noEmptyTranslation`](#noemptytranslation)
+   - [`missingtranslationstring`](#missingtranslationstring)
+
 - [Supported `vue-i18n` Formats](#supported-vue-i18n-formats)
 - [Why?](#why)
 - [Contribution](#contribution)
@@ -49,7 +47,7 @@
 Run from the command line:
 
 ```sh
-npx vue-i18n-extract report --vueFiles './path/to/source-files/**/*.?(js|vue)' --languageFiles './path/to/language-files/*.?(json|yml|yaml)'
+npx vue-i18n-extract-bl report --vueFiles './path/to/source-files/**/*.?(js|vue)' --languageFiles './path/to/language-files/*.?(json|yml|yaml)'
 ```
 
 ### As part of a project
@@ -57,7 +55,7 @@ npx vue-i18n-extract report --vueFiles './path/to/source-files/**/*.?(js|vue)' -
 Install the package in your project:
 
 ```sh
-npm install --save-dev vue-i18n-extract
+npm install --save-dev vue-i18n-extract-bl
 ```
 
 Use it via an npm script in your `package.json` file:
@@ -65,7 +63,7 @@ Use it via an npm script in your `package.json` file:
 ```json
 {
   "scripts": {
-    "vue-i18n-extract": "vue-i18n-extract report --vueFiles './path/to/source-files/**/*.?(js|vue)' --languageFiles './path/to/language-files/*.?(json|yml|yaml|js)'"
+    "vue-i18n-extract": "vue-i18n-extract-bl report --vueFiles './path/to/source-files/**/*.?(js|vue)' --languageFiles './path/to/language-files/*.?(json|yml|yaml|js)'"
   }
 }
 ```
@@ -73,7 +71,7 @@ Use it via an npm script in your `package.json` file:
 Finally, run:
 
 ```sh
-npm run vue-i18n-extract
+npm run vue-i18n-extract-bl
 ```
 
 This will print out a table of missing keys in your language files, as well as unused keys in your language files.
@@ -83,13 +81,13 @@ This will print out a table of missing keys in your language files, as well as u
 Install the package in your project:
 
 ```sh
-npm install --save-dev vue-i18n-extract
+npm install --save-dev vue-i18n-extract-bl
 ```
 
 Import the module and use it like this:
 
 ```js
-const VueI18NExtract = require('vue-i18n-extract');
+const VueI18NExtract = require('vue-i18n-extract-bl');
 
 const report = VueI18NExtract.createI18NReport({
   vueFiles: './path/to/vue-files/**/*.?(js|vue)',
@@ -111,8 +109,8 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string`
 * Description: A path to the directory of files from which you want to extract translation keys from. Can be a path to a file. Can include glob patterns (using [glob](https://www.npmjs.com/package/glob)). **Note for Windows users**: use forward slashes in paths.
 * Examples:
-  * `./path/to/source-files/**/*.?(js|vue)`
-  * `./tests/fixtures/**/*.?(vue|js)`
+   * `./path/to/source-files/**/*.?(js|vue)`
+   * `./tests/fixtures/**/*.?(vue|js)`
 
 ### `languageFiles`
 
@@ -122,8 +120,8 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string`
 * Description: The language file(s) you want to compare your source file(s) to. It can be a path to a folder or a file. Can include glob patterns (using [glob](https://www.npmjs.com/package/glob)). **Note for Windows users**: use forward slashes in paths.
 * Examples:
-  * `./path/to/language-files/*.?(json|yml|yaml)`
-  * `./tests/fixtures/lang/**/*.json`
+   * `./path/to/language-files/*.?(json|yml|yaml)`
+   * `./tests/fixtures/lang/**/*.json`
 
 ### `output`
 
@@ -134,7 +132,7 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string`
 * Description: Saves a report in JSON format containing all missing and unused translation keys at the given file path (the directory must exist for this to work).
 * Examples:
-  * `output.json`
+   * `output.json`
 
 ### `add`
 
@@ -163,15 +161,6 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `boolean`
 * Description: Causes the process to exit with exit code 1 if at least one translation key is missing or unused (useful if it is part of a CI pipeline).
 
-### `separator`
-
-* Name: `separator`
-* CLI argument: `--separator`
-* Required: No
-* Default: `'.'`
-* Type: `string`
-* Description: Changes the default separator used in translation keys for nested translation paths.
-
 ### `exclude`
 
 * Name: `exclude`
@@ -181,8 +170,8 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string` or array of `string`s
 * Description: Excludes the provided translation keys from the report. When using sub segments of dot notation paths (e.g. `company.meta` in `company.meta.motto`), the entire node of the object indicated by the sub segment will be excluded.
 * Examples:
-  * Configuration option: `exclude: ['translation_key_1', 'translation_key_2']`
-  * CLI argument: `--exclude translation_key_1 --exclude translation_key_2`
+   * Configuration option: `exclude: ['translation_key_1', 'translation_key_2']`
+   * CLI argument: `--exclude translation_key_1 --exclude translation_key_2`
 
 ### `detect`
 
@@ -193,8 +182,8 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string` or array of `string`s
 * Description: Defines what do detect (and include) in the report.
 * Examples:
-  * Configuration option: `detect: ['missing', 'unused']`
-  * CLI argument: `--detect missing --detect unused`
+   * Configuration option: `detect: ['missing', 'unused']`
+   * CLI argument: `--detect missing --detect unused`
 
 ### `noEmptyTranslation`
 
@@ -205,9 +194,9 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string`
 * Description: Generates a default translation for each translation key with no translation. The default translation will be the translation key itself.
 * Examples:
-  * `'*'`: Generate empty default translation for all locales.
-  * `'en'`: Generate empty default translation for locale `'en'`.
-  * `'en-US'`: Generate empty default translation for locale `'en-US'`.
+   * `'*'`: Generate empty default translation for all locales.
+   * `'en'`: Generate empty default translation for locale `'en'`.
+   * `'en-US'`: Generate empty default translation for locale `'en-US'`.
 
 ### `missingTranslationString`
 
@@ -218,12 +207,13 @@ You can generate a default configuration file using `npx vue-i18n-extract init` 
 * Type: `string` or `null`
 * Description: Text to use when missing translations are added to the translation files.
 * Examples:
-  * `'Translation missing'`: Use "Translation missing" as default key.
-  * `null`: Add the translation key to the file, but don't add a default translation. This will trigger `vue-i18n`'s the missingHandler.
+   * `'Translation missing'`: Use "Translation missing" as default key.
+   * `null`: Add the translation key to the file, but don't add a default translation. This will trigger `vue-i18n`'s the missingHandler.
 
 ## Supported `vue-i18n` Formats
 
 - Static in template or script:
+
 ```js
 // Single or double quote, and template literals
 $t('key.static') $t("key.static") $t(`key.static`)
@@ -239,6 +229,7 @@ tc('key.static', 0) tc("key.static", 1) tc(`key.static`, 2)
 ```
 
 - i18n component:
+
 ```html
 <i18n path="key.component"></i18n>
 <i18n-t keypath="key.component"></i18n-t>
@@ -248,6 +239,7 @@ tc('key.static', 0) tc("key.static", 1) tc(`key.static`, 2)
 > Note: As of right now there is no support for binding in a path like `:path="condition ? 'string1' : 'string2'"` there is just support for strings as shown above.
 
 - i18n component in code:
+
 ```js
 const TranslationComponentInCode = h(Translation, {
   keypath: 'Translation component in code.',
@@ -256,10 +248,12 @@ const TranslationComponentInCode = h(Translation, {
 ```
 
 - v-t directive with string literal:
+
 ```html
 <p v-t="'key.directive'"></p>
 <p v-t.preserve="'key.directive'"></p>
 ```
+
 > Note: As of right now there is no object support to reference a path from component data.
 
 ## Why?
