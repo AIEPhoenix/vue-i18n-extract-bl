@@ -98,6 +98,7 @@ export function writeMissingToLanguageFiles(
       }
     });
 
+    languageFile.content = JSON.stringify(languageFileContent);
     writeLanguageFile(languageFile, languageFileContent);
   });
 }
@@ -115,6 +116,7 @@ export function removeUnusedFromLanguageFiles(
       }
     });
 
+    languageFile.content = JSON.stringify(languageFileContent);
     writeLanguageFile(languageFile, languageFileContent);
   });
 }

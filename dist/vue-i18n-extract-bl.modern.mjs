@@ -208,6 +208,7 @@ function writeMissingToLanguageFiles(parsedLanguageFiles, missingKeys, noEmptyTr
         setProperty(languageFileContent, item.path, addDefaultTranslation ? item.path : missingTranslationString === "null" ? null : missingTranslationString);
       }
     });
+    languageFile.content = JSON.stringify(languageFileContent);
     writeLanguageFile(languageFile, languageFileContent);
   });
 }
@@ -219,6 +220,7 @@ function removeUnusedFromLanguageFiles(parsedLanguageFiles, unusedKeys) {
         deleteProperty(languageFileContent, item.path);
       }
     });
+    languageFile.content = JSON.stringify(languageFileContent);
     writeLanguageFile(languageFile, languageFileContent);
   });
 }
